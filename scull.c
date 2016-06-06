@@ -4,6 +4,10 @@
 MODULE_LICENSE("Dual BSD/GPL");
 #define SCULL_MAJOR 100
 #define SCULL_MINOR 1
+int i=0;
+
+EXPORT_SYMBOL(i);
+ 
 dev_t dev_num=MKDEV(SCULL_MAJOR,SCULL_MINOR);
 static int hello_init(void)
 {
