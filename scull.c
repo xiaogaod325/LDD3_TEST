@@ -15,6 +15,8 @@ static int hello_init(void)
     return 0;
 }
 
+
+
 static void hello_exit(void)
 {
     printk(KERN_ALERT "bye,world");
