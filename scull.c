@@ -15,7 +15,8 @@ static int hello_init(void)
     return 0;
 }
 
-...gao :
+...gao :]
+....wang
 
 static void hello_exit(void)
 {
