@@ -18,7 +18,8 @@ static int hello_init(void)
        	result=register_chrdev_region(dev_num,4,"scull");
     else 
         result=alloc_chrdev_region(&dev_num,SCULL_MINOR,4,"scull");
-    
+    if(result != 0)
+        printk("scull register dev number fail \n");   
      
     
     return 0;
