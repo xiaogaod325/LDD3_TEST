@@ -9,6 +9,13 @@ int i=0;
 
 EXPORT_SYMBOL(i);
  
+
+struct scull_qset{
+	void **data;
+        struct scull_qset* next;
+}
+
+
 struct scull_dev{
 	struct scull_qset *data;
 	int quantum;
@@ -72,7 +79,9 @@ dev_t dev_num=MKDEV(SCULL_MAJOR,SCULL_MINOR);
 static int hello_init(void)
 {
     int result;
-    printk(KERN_ALERT "hello,world");
+    struct scull_dev scull_dev[4];
+    printk(KERN_ALERT "hello,world");a
+
     if(SCULL_MAJOR)
        	result=register_chrdev_region(dev_num,4,"scull");
     else 
@@ -82,7 +91,10 @@ static int hello_init(void)
         return result;
      }
      
-     
+    for(i=0;i<4;i++){
+
+    }
+    
      
      
     
