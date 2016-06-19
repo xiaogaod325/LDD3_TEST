@@ -9,6 +9,17 @@ int i=0;
 
 EXPORT_SYMBOL(i);
  
+struct scull_dev{
+	struct scull_qset *data;
+	int quantum;
+	int qset;
+	unsigned long size;
+	unsigned int accesskey;
+	struct semaphore sem;
+	struct cdev cdev;
+}
+
+
 loff_t scull_llseek(struct file * filep,loff_t off,int whence)
 {
 
