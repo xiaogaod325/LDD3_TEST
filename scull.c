@@ -91,10 +91,10 @@ static int hello_init(void)
         printk("scull register dev number fail \n");   
         return result;
      }
-    cdev_init(&scull_dev.cdev,&fops);
-    result=cdev_add(&scull_dev.cdev,dev_num,1);
+    cdev_init(&scull_dev[0].cdev,&fops);
+    result=cdev_add(&scull_dev[0].cdev,dev_num,1);
        if(result<0)
-	    {prntk("cdev add  error %d \n",result);}
+	    {printk("cdev add  error %d \n",result);}
 
 
     
