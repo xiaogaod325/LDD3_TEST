@@ -2,6 +2,7 @@
 #include<linux/fs.h>
 #include<linux/module.h>
 #include<linux/kdev_t.h>
+#include<linux/cdev.h>
 MODULE_LICENSE("Dual BSD/GPL");
 #define SCULL_MAJOR 100
 #define SCULL_MINOR 0
@@ -13,7 +14,7 @@ EXPORT_SYMBOL(i);
 struct scull_qset{
 	void **data;
         struct scull_qset* next;
-}
+};
 
 
 struct scull_dev{
@@ -24,7 +25,7 @@ struct scull_dev{
 	unsigned int accesskey;
 	struct semaphore sem;
 	struct cdev cdev;
-}
+};
 
 
 loff_t scull_llseek(struct file * filep,loff_t off,int whence)
@@ -80,7 +81,7 @@ static int hello_init(void)
 {
     int result;
     struct scull_dev scull_dev[4];
-    printk(KERN_ALERT "hello,world");a
+    printk(KERN_ALERT "hello,world");
 
     if(SCULL_MAJOR)
        	result=register_chrdev_region(dev_num,4,"scull");
